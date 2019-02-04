@@ -10,44 +10,53 @@
         <button class="btn"><i class="fa fa-gear"></i></button>
       </v-toolbar-items>
     </v-toolbar>
+    <br>
+    <v-toolbar-items class="hidden-sm-and-down">
+        <button class="btn"><i class="fa fa-vertical"> Vertical</i></button>
+        <button class="btn"><i class="fa fa-geometric"></i> Product Type</button>
+        <button class="btn"><i class="fa fa-envelope"> Process</i></button>
+        <button class="btn"><i class="fa fa-camera"></i> ST Family</button>
+        <button class="btn"><i class="fa fa-camera"></i> MM</button>
+      </v-toolbar-items>
+    <v-divider></v-divider>
     <v-layout>
-    <v-flex class="flex" xs12 sm1 offset-sm0>
-      <v-card>
-        <v-card-title primary-title>
-          <div>
-            <h3 class="headline mb-0">Account Info</h3>
-          </div>
-        </v-card-title>
-        <v-card-actions>
-          <v-btn @click="goToPage('TrialAccountInfo')" flat color="orange">Details</v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-flex>
-    <v-flex class="flex" xs12 sm1 offset-sm0>
-      <v-card>
-        <v-card-title primary-title>
-          <div>
-            <h3 class="headline mb-0">Create New Account</h3>
-          </div>
-        </v-card-title>
-        <v-card-actions>
-          <v-btn @click="goToPage('AccountRegistration')" flat color="orange">Details</v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-flex>
-    <v-flex class="flex" xs12 sm1 offset-sm0>
-      <v-card>
-        <v-card-title primary-title>
-          <div>
-            <h3 class="headline mb-0">Trial Account Info</h3>
-          </div>
-        </v-card-title>
-        <v-card-actions>
-          <v-btn @click="goToPage('TrialAccountInfo')" flat color="orange">Details</v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-flex>
-  </v-layout>
+      <v-flex class="flex" xs12 sm1 offset-sm0>
+        <v-card>
+          <v-card-title primary-title>
+            <div>
+              <h3 class="headline mb-0">Account Info</h3>
+            </div>
+          </v-card-title>
+          <v-card-actions>
+            <v-btn @click="goToPage('AccountInfo')" flat color="orange">Details</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-flex>
+      <v-flex class="flex" xs12 sm1 offset-sm0>
+        <v-card>
+          <v-card-title primary-title>
+            <div>
+              <h3 class="headline mb-0">Create New Account</h3>
+            </div>
+          </v-card-title>
+          <v-card-actions>
+            <v-btn @click="goToPage('AccountRegistration')" flat color="orange">Details</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-flex>
+      <v-flex class="flex" xs12 sm1 offset-sm0>
+        <v-card>
+          <v-card-title primary-title>
+            <div>
+              <h3 class="headline mb-0">Trial Account Info</h3>
+            </div>
+          </v-card-title>
+          <v-card-actions>
+            <v-btn @click="goToPage('TrialAccountInfo')" flat color="orange">Details</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-flex>
+    </v-layout>
   </div>
 </template>
 

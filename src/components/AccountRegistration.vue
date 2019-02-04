@@ -18,7 +18,7 @@
             id="a"
             type="number"
             name="id"
-            v-model="id"
+            v-model="user.id"
             placeholder="ID"
             required="true">
             <br>
@@ -29,7 +29,7 @@
             <input
             type="text"
             name="first name"
-            v-model="firstName"
+            v-model="user.firstName"
             placeholder="First Name"
             required="true">
             <br>
@@ -40,7 +40,7 @@
             <input
             type="text"
             name="middle name"
-            v-model="middleName"
+            v-model="user.middleName"
             placeholder="Middle Name">
             <br>
             <br>
@@ -50,7 +50,7 @@
             <input
             type="text"
             name="last name"
-            v-model="lastName"
+            v-model="user.lastName"
             placeholder="Last Name"
             required="true">
             <br>
@@ -61,7 +61,7 @@
             <input
             type="date"
             name="birth date"
-            v-model="birthDate"
+            v-model="user.birthDate"
             placeholder="mm/dd/yyyy"
             required="true">
             <br>
@@ -72,7 +72,7 @@
             <input
             type="email"
             name="email"
-            v-model="email"
+            v-model="user.email"
             placeholder="Email"
             required="true">
           </p>
@@ -85,12 +85,11 @@
         <form>
           <p>
             <strong>*Country: </strong>
-            <input
-            type="text"
-            name="country"
-            v-model="country"
-            placeholder="Country"
-            required="true">
+            <v-select
+            :items="countries"
+            box
+            label="Countries"
+            ></v-select>
             <br>
             <br>
           </p>
@@ -99,7 +98,7 @@
             <input
             type="text"
             name="state"
-            v-model="state"
+            v-model="user.state"
             placeholder="State"
             required="true">
             <br>
@@ -110,7 +109,7 @@
             <input
             type="text"
             name="city"
-            v-model="city"
+            v-model="user.city"
             placeholder="City">
             <br>
             <br>
@@ -120,7 +119,7 @@
             <input
             type="text"
             name="address Line 1"
-            v-model="addressLine1"
+            v-model="user.addressLine1"
             placeholder="Address Line 1"
             required="true">
             <br>
@@ -131,7 +130,7 @@
             <input
             type="text"
             name="address Line 2"
-            v-model="addressLine2"
+            v-model="user.addressLine2"
             placeholder="Address Line 2">
             <br>
             <br>
@@ -142,7 +141,7 @@
             type="text"
             pattern="[0-9]{5}"
             name="zip/postal code"
-            v-model="zipPostalCode"
+            v-model="user.zipPostalCode"
             placeholder="ZIP/Postal Code"
             required="true">
           </p>
@@ -158,7 +157,7 @@
             <input
             type="text"
             name="account type"
-            v-model="accountType"
+            v-model="user.accountType"
             placeholder="Account Type"
             required="true">
             <br>
@@ -181,6 +180,9 @@
 </template>
 
 <script>
+// eslint-disable-next-line
+import CountriesService from '@/services/CountriesService'
+
 export default {
   name: 'AccountRegistration',
   data () {
@@ -199,7 +201,8 @@ export default {
         addressLine2: '',
         zipPostalCode: '',
         accountType: ''
-      }
+      },
+      countries: []
     }
   },
   methods: {
@@ -212,7 +215,18 @@ export default {
       } catch (err) {
         console.log(err)
       }
+    },
+    async getAllCountries () {
+      // todo: implementar a conexão com o backend
+      this.$http().get('countries').then((response) => {
+        console.log(response)
+        this.countries = response.body
+      })
     }
+  },
+  async mounted () {
+    this.countries = (await CountriesService.index()).data
+    console.log(this.countries)
   }
 }
 </script>

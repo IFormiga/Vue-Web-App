@@ -18,9 +18,9 @@
         class="elevation-1"
       >
         <template slot="items" slot-scope="props">
-          <td class="text-xs-right">{{ props.item.type }}</td>
-          <td class="text-xs-right">{{ props.item.date }}</td>
-          <td class="text-xs-right">{{ props.item.time }}</td>
+          <td class="text-xs-center">{{ props.item.type }}</td>
+          <td class="text-xs-center">{{ props.item.date }}</td>
+          <td class="text-xs-center">{{ props.item.time }}</td>
         </template>
       </v-data-table>
       </div>
@@ -48,14 +48,9 @@ export default {
       accountType: 'Trial',
       items: [1, 2, 3, 4],
       headers: [
-        {
-          text: 'Type',
-          align: 'left',
-          sortable: false,
-          value: 'type'
-        },
-        { text: 'Date', value: 'date' },
-        { text: 'Time', value: 'time' }
+        { text: 'Type', align: 'center', sortable: false, value: 'type' },
+        { text: 'Date', value: 'date', align: 'center', sortable: false },
+        { text: 'Time', value: 'time', align: 'center', sortable: false }
       ],
       userHistory: [
         {

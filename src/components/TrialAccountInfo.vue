@@ -76,7 +76,7 @@ export default {
       // todo: implementar a conexão com o backend
       try {
         this.$router.push({
-          name: 'HelloWorld'
+          name: 'MainPage'
         })
       } catch (err) {
         console.log(err)

@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+import MainPage from '@/components/MainPage'
 import AccountRegistration from '@/components/AccountRegistration'
 import AccountInfo from '@/components/AccountInfo'
 import TrialAccountInfo from '@/components/TrialAccountInfo'
@@ -11,22 +11,22 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      name: 'MainPage',
+      component: MainPage
     },
     {
       path: '/AccountRegistration',
-      name: 'Account Registration',
+      name: 'AccountRegistration',
       component: AccountRegistration
     },
     {
       path: '/AccountInfo',
-      name: 'Account Info',
+      name: 'AccountInfo',
       component: AccountInfo
     },
     {
       path: '/TrialAccountInfo',
-      name: 'Trial Account Info',
+      name: 'TrialAccountInfo',
       component: TrialAccountInfo
     }
   ]

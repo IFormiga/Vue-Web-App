@@ -1,5 +1,6 @@
 <template>
   <div>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <div class="white elevation-2">
         <v-toolbar>
           <button @click="create">Voltar</button>
@@ -165,8 +166,18 @@
           </p>
         </form>
       </div>
+    <v-footer class="pa-3">
+      <v-spacer></v-spacer>
+      <div>
+        <button type="button" class="btn btn-success">
+          <i class="fa fa-floppy-o"> Salvar</i>
+        </button>
+        <button type="button" class="btn btn-success">
+          <i class="fa fa-close"> Cancel</i>
+        </button>
+      </div>
+    </v-footer>
     </div>
-
 </template>
 
 <script>
@@ -174,19 +185,21 @@ export default {
   name: 'AccountRegistration',
   data () {
     return {
-      id: 0,
-      firstName: '',
-      middleName: '',
-      lastName: '',
-      birthDate: '',
-      email: '',
-      country: '',
-      state: '',
-      city: '',
-      addressLine1: '',
-      addressLine2: '',
-      zipPostalCode: '',
-      accountType: ''
+      user: {
+        id: 0,
+        firstName: '',
+        middleName: '',
+        lastName: '',
+        birthDate: '',
+        email: '',
+        country: '',
+        state: '',
+        city: '',
+        addressLine1: '',
+        addressLine2: '',
+        zipPostalCode: '',
+        accountType: ''
+      }
     }
   },
   methods: {
@@ -194,7 +207,7 @@ export default {
       // todo: implementar a conexão com o backend
       try {
         this.$router.push({
-          name: 'HelloWorld'
+          name: 'MainPage'
         })
       } catch (err) {
         console.log(err)
@@ -210,7 +223,14 @@ export default {
   width: 600px;
   clear: both;
 }
-
+.btn {
+  background-color: inherit; /* Blue background */
+  border: none; /* Remove borders */
+  color: black; /* White text */
+  padding: 12px 16px; /* Some padding */
+  font-size: 16px; /* Set a font size */
+  cursor: pointer; /* Mouse pointer on hover */
+}
 .container input {
   width: 100%;
   clear: both;
